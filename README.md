@@ -6,7 +6,7 @@ It __does not__ reconfigure the session if $\_SESSION exists.
 This middleware work in two steps:
 
 1. This middleware open the session (by calling `session_start`) if needed to __*copy*__ it to create an instance extending the  [`ArraySession`](https://github.com/session-interop/utils.session) then close it immediatly (by calling `session_abort`) if it was not started before, to preserve the session state. Once the session copied, it is injected in the PSR7's request and then followings middleware are called.
-2. Once every following middleware has been executed, news  or removed session values (as defined [`here`](https://github.com/session-interop/session-interop) is wrote in $\_SESSION and then the session persisted. Once again, it ensure to reopen the session or to let it close depending on the previous session's state.
+2. Once every following middleware has been executed, news / removed / modified session values (on the object) is wrote in $\_SESSION and then the session is persisted. Once again, it ensure to reopen the session or to let it close depending on the previous session's state.
 
 __Warning:__ Persisted mean there is a manual call to `session_write_close`, that imply all $\_SESSION to be wrote.
 
