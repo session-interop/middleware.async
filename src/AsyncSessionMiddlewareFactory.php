@@ -2,19 +2,16 @@
 
 namespace Interop\Session\Middleware\Async;
 
-use Psr\Http\Message\{
-    ServerRequestInterface as Request, ResponseInterface as Response
-};
-use Interop\Session\Manager\{
-    SessionManagerInterface as SessionManager, Utils\DefaultManager\DefaultSessionManager as DefaultManager
-};
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Interop\Session\Manager\SessionManagerInterface as SessionManager;
+use Interop\Session\Manager\Utils\DefaultManager\DefaultSessionManager as DefaultManager;
 use Interop\Session\Configuration\SessionConfigurationInterface;
 
 use Interop\Session\SessionInterface;
 
 class AsyncSessionMiddlewareFactory
 {
-
     public function __invoke(\Interop\Container\ContainerInterface $container)
     {
         $manager = $container->get(SessionManager::class);
