@@ -19,7 +19,7 @@ class AsyncSessionMiddleware
         $this->factory = $factory;
     }
 
-    public function getSession()
+    public function getSession(): SessionInterface
     {
         return $this->factory->get();
     }
