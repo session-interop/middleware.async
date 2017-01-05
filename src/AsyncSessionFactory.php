@@ -35,8 +35,11 @@ class AsyncSessionFactory
         return $this->session;
     }
 
-    public function save()
+    public function save(): void
     {
+        if (!$this->session) {
+            return;
+        }
         $oldActive = $this->sessionManager->isSessionActive();
         $this->sessionManager->ensureSessionHasStart();
         foreach ($this->session as $key => $value) {
