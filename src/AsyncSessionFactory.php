@@ -54,7 +54,7 @@ class AsyncSessionFactory
     private function __destroy()
     {
         if (!$this->hasBeenSaved) {
-            $this->saveSession();
+            $this->save();
         }
     }
 }
