@@ -5,6 +5,7 @@ namespace Interop\Session\Middleware\Async;
 use Interop\Session\Manager\{SessionManagerInterface as SessionManager};
 use Interop\Session\Utils\ArraySession\SavableSession as Session;
 use Interop\Session\Factory\SessionFactoryInterface;
+use Interop\Session\SessionInterface;
 
 class AsyncSessionFactory implements SessionFactoryInterface
 {
@@ -21,7 +22,7 @@ class AsyncSessionFactory implements SessionFactoryInterface
         $this->sessionManager = $manager;
     }
 
-    public function get(): Session
+    public function get(): SessionInterface
     {
         if (!$this->session) {
             $oldActive = $this->sessionManager->isSessionActive();
