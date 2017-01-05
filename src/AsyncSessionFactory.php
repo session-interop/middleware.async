@@ -4,8 +4,9 @@ namespace Interop\Session\Middleware\Async;
 
 use Interop\Session\Manager\{SessionManagerInterface as SessionManager};
 use Interop\Session\Utils\ArraySession\SavableSession as Session;
+use Interop\Session\Factory\SessionFactoryInterface;
 
-class AsyncSessionFactory
+class AsyncSessionFactory implements SessionFactoryInterface
 {
     protected $manager = null;
 
